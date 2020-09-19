@@ -1,6 +1,7 @@
 import logging
 import importlib
-import src.slave_core.config as config
+import slave_core.config as config
+from slave_core.connection import *
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -10,10 +11,11 @@ FILENAME = f"plugins/{config.PLUGINS[0]}".replace('/', '.')
 
 def main():
     logging.info('Starting...')
-    logging.debug('Filename: ' + FILENAME)
+    logging.debug(connection.connect("test", "db", "root", ""))
     logging.debug(config.PLUGINS)
     plugin = importlib.import_module(FILENAME, package="src.")
     fun = getattr(plugin, 'render')
+    # TODO: run render() in another thread
     result = fun("test", { 'frame_start': 10, "frame_end": 15 })
     logging.debug("result: " + result)
     return 0

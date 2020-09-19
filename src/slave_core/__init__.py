@@ -1,1 +1,1 @@
-from src.slave_core.config import PLUGINS
+from slave_core.config import PLUGINS
