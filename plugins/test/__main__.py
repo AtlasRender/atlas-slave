@@ -1,6 +1,5 @@
 import slave_core.config as config
 import slave_core.plugin_processing as pp
-import slave_core
 
 
 def render(file, settings):
