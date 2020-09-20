@@ -1,0 +1,9 @@
+{
+  "frame_begin": 10,
+  "frame_end": 15,
+  "file": "url",
+  "scene": "scene0",
+  "output_url": "url",
+  "engine": "arnold",
+  "settings": {}
+}
