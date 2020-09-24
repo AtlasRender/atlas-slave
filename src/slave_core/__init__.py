@@ -1,1 +1,0 @@
-from slave_core.config import PLUGINS

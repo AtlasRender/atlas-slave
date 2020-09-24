@@ -1,23 +1,24 @@
 import logging
 import importlib
+import dotenv
+import os
+
 import slave_core.config as config
 from slave_core.connection import *
+from slave_core.slave_plugin import *
 
 logging.basicConfig(level=logging.DEBUG)
 
+
 # FILENAME = os.path.basename("./plugins/test/src/__main__").replace('\\', '.')
-FILENAME = f"plugins/{config.PLUGINS[0]}".replace('/', '.')
 
 
 def main():
     logging.info('Starting...')
-    logging.debug(connection.connect("test", "db", "root", ""))
-    logging.debug(config.PLUGINS)
-    plugin = importlib.import_module(FILENAME, package="src.")
-    fun = getattr(plugin, 'render')
-    # TODO: run render() in another thread
-    result = fun("test", { 'frame_start': 10, "frame_end": 15 })
-    logging.debug("result: " + result)
+    dotenv.load_dotenv(dotenv_path=config.ENV_PATH)
+    logging.debug(os.getenv('HELLO'))
+    plugin.run_plugin('test')
+
     return 0
 
 
