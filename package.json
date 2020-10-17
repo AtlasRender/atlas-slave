@@ -1,10 +1,53 @@
 {
   "name": "pathfinder-slave",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Pathfinder Slave - part of Pathfinder system, designed to manipulate render software directly on render nodes",
+  "keywords": [
+    "vizualization",
+    "automation",
+    "monitoring",
+    "simulation",
+    "3d-graphics",
+    "2d-graphics",
+    "namager",
+    "manager-system"
+  ],
+  "author": {
+    "name": "Danil Andreev",
+    "email": "danssg08@gmail.com",
+    "url": "https://github.com/DanilAndreev"
+  },
+  "contributors": [
+    {
+      "name": "Denis Afendikov",
+      "email": "denafen2000@gmail.com",
+      "url": "https://github.com/JeyM1"
+    },
+    {
+      "name": "Liskovych Anton",
+      "email": "liskovich00@gmail.com",
+      "url": "https://github.com/Anyone2324"
+    }
+  ],
   "license": "MIT",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest",
+    "start": "node dest/index.js",
+    "dev": "tsc && node dest/index.js",
+    "build": "tsc",
+    "watch": "npx nodemon",
+    "exec": "ts-node ./src/index.ts"
+  },
   "devDependencies": {
     "@types/node": "^14.11.10",
     "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "@types/amqplib": "^0.5.14",
+    "@types/moment": "^2.13.0",
+    "amqplib": "^0.6.0",
+    "moment": "^2.29.1",
+    "ts-node": "^9.0.0"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es5",
+      "es6"
+    ],
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "target": "es2015",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "dest",
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules"
+  ]
+}
