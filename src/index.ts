@@ -7,16 +7,12 @@
  * All rights reserved.
  */
 
+
 import * as Amqp from "amqplib";
-
-
-const config: Amqp.Options.Connect = {
-    hostname: "104.197.241.243",
-    port: 5672,
-}
+import config from "./config";
 
 async function RabbitMQ(): Promise<void> {
-    const amqp: Amqp.Connection = await Amqp.connect(config);
+    const amqp: Amqp.Connection = await Amqp.connect(config.rabbit);
 
     const channel: Amqp.Channel = await amqp.createChannel()
 
