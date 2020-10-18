@@ -6,4 +6,4 @@ build/
 dest/
 
 # Git crypt
-key
+key.*
