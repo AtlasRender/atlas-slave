@@ -3,14 +3,16 @@
  * Owner and project architect: Danil Andreev | danssg08@gmail.com |  https://github.com/DanilAndreev
  * File creator: Danil Andreev
  * Project: pathfinder-slave
- * File last modified: 17.10.2020, 23:39
+ * File last modified: 18.10.2020, 19:12
  * All rights reserved.
  */
 
+export default class RenderDispatcher {
+    public static sendReport(message: any) {
 
-import * as Amqp from "amqplib";
-import config from "./config";
-import "./globals";
-import RabbitMQ from "./core/RabbitMQ";
+    }
 
-RabbitMQ.init(config.rabbit).then();
+    public static doRenderTask(task): void {
+        console.log(task);
+    }
+}
