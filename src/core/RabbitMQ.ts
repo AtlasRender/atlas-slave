@@ -39,7 +39,13 @@ export default class RabbitMQ {
             } catch (error) {
                 // TODO: handle invalid message.
             }
-            RenderDispatcher.doRenderTask(renderTask);
+            try {
+                RenderDispatcher.doRenderTask(renderTask);
+                RabbitMQ.renderTasksChannel.ack(message);
+                // TODO: Add result to queue.
+            } catch(error) {
+                // TODO: handle error
+            }
         });
     }
 
