@@ -7,12 +7,18 @@
  * All rights reserved.
  */
 
+import RabbitMQ from "./RabbitMQ";
+
 export default class RenderDispatcher {
     public static sendReport(message: any) {
 
     }
 
-    public static doRenderTask(task): void {
+    public static async doRenderTask(task): Promise<void> {
         console.log(task);
+        for (let i = 0; i < 3; i++) {
+            await RabbitMQ.sendTaskReport({text: "rendering" + i, task});
+        }
+        await RabbitMQ.sendTaskReport({text: "finish", task});
     }
 }

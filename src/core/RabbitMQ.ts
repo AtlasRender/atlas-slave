@@ -32,7 +32,7 @@ export default class RabbitMQ {
         // Consuming render task
         await RabbitMQ.renderTasksChannel.assertQueue(AMQP_TASKS_QUEUE);
         await RabbitMQ.renderTasksChannel.prefetch(1);
-        await RabbitMQ.renderTasksChannel.consume(AMQP_TASKS_QUEUE, (message: Amqp.Message) => {
+        await RabbitMQ.renderTasksChannel.consume(AMQP_TASKS_QUEUE, async (message: Amqp.Message) => {
             let renderTask: any = null;
             try {
                 renderTask = JSON.parse(message.content.toString());
@@ -40,7 +40,7 @@ export default class RabbitMQ {
                 // TODO: handle invalid message.
             }
             try {
-                RenderDispatcher.doRenderTask(renderTask);
+                await RenderDispatcher.doRenderTask(renderTask);
                 RabbitMQ.renderTasksChannel.ack(message);
                 // TODO: Add result to queue.
             } catch(error) {
@@ -49,7 +49,8 @@ export default class RabbitMQ {
         });
     }
 
-    public static async sendTaskReport(message: any): Promise<void> {
-        this.taskReportConnection.sendToQueue(AMQP_REPORTS_QUEUE, Buffer.from(message));
+    public static async sendTaskReport(message: object): Promise<void> {
+        await RabbitMQ.taskReportConnection.assertQueue(AMQP_REPORTS_QUEUE);
+        await RabbitMQ.taskReportConnection.sendToQueue(AMQP_REPORTS_QUEUE, Buffer.from(JSON.stringify(message)));
     }
 }
