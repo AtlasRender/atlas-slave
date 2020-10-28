@@ -10,9 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b48198a4-4394-4b7c-a4d6-fd59a276435e" name="Default Changelist" comment="[Rabbit] Added simple queue workflow.">
+    <list default="true" id="b48198a4-4394-4b7c-a4d6-fd59a276435e" name="Default Changelist" comment="[git-crypt] Cleanup.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/RabbitMQ.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/RabbitMQ.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +51,7 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="copyright" />
-    <property name="ts.external.directory.path" value="D:\Projects\pathfinder-slave\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -131,12 +131,12 @@
       <option name="project" value="LOCAL" />
       <updated>1603018204046</updated>
     </task>
-    <task id="LOCAL-00008" summary="[Rabbit] Added simple queue workflow.">
-      <created>1603045658633</created>
+    <task id="LOCAL-00008" summary="[git-crypt] Cleanup.">
+      <created>1603367792079</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1603045658634</updated>
+      <updated>1603367792079</updated>
     </task>
     <option name="localTasksCounter" value="9" />
     <servers />
@@ -161,8 +161,8 @@
     <MESSAGE value="[git-crypt] Initialized." />
     <MESSAGE value="Merge remote-tracking branch 'origin/prod' into prod" />
     <MESSAGE value="[config] Added config." />
-    <MESSAGE value="[Rabbit] Added simple queue workflow." />
-    <option name="LAST_COMMIT_MESSAGE" value="[Rabbit] Added simple queue workflow." />
+    <MESSAGE value="[git-crypt] Cleanup." />
+    <option name="LAST_COMMIT_MESSAGE" value="[git-crypt] Cleanup." />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602968431259">
@@ -173,10 +173,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="723" y="322" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603017797634" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1603184709347">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2610" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603367670318">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603184709347" />
+    <state x="2610" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603367670318" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1603039076980">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -193,6 +193,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603039076979" />
+    <state x="2656" y="222" key="RollbackChangesDialog" timestamp="1603367629543">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2656" y="222" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603367629543" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1602967582662">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
