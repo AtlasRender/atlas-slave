@@ -70,7 +70,7 @@ export default class RabbitMQ {
             data: message,
         }
         await RabbitMQ.taskReportConnection.assertQueue(AMQP_REPORTS_QUEUE);
-        await RabbitMQ.taskReportConnection.sendToQueue(AMQP_REPORTS_QUEUE, Buffer.from(JSON.stringify(message)));
+        await RabbitMQ.taskReportConnection.sendToQueue(AMQP_REPORTS_QUEUE, Buffer.from(JSON.stringify(payload)));
     }
 
     protected  static async sendTaskStartReport(taskId: number): Promise<void> {
