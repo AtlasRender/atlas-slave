@@ -3,7 +3,7 @@ name: "Bug report \U0001F41B"
 about: "Create a report to help us improve \U0001F603"
 title: Fix ...your problem...
 labels: bug, invalid
-assignees: JeyM1
+assignees: Anyone2324
 
 ---
 
