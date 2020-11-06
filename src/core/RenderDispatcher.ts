@@ -17,8 +17,8 @@ export default class RenderDispatcher {
     public static async doRenderTask(task): Promise<void> {
         console.log(task);
         for (let i = 0; i < 3; i++) {
-            await RabbitMQ.sendTaskReport({text: "rendering" + i, task});
+            await RabbitMQ.sendTaskReport(task.id, "info", {text: "rendering" + i, task});
         }
-        await RabbitMQ.sendTaskReport({text: "finish", task});
+        await RabbitMQ.sendTaskReport(task.id, "info", {text: "finish", task});
     }
 }
