@@ -8,8 +8,12 @@
  */
 
 import RabbitMQ from "./RabbitMQ";
+import * as vm from "vm";
 
-const { exec } = require("child_process");
+let sandbox = {
+    require,
+    console
+};
 
 const plugin = "const { exec } = require(\"child_process\");\n" +
     "\n" +
@@ -37,11 +41,8 @@ export default class RenderDispatcher {
 
     public static async doRenderTask(task): Promise<void> {
         console.log(task["plugin"]);
-        // for (let i = 0; i < 3; i++) {
-        //     await RabbitMQ.sendTaskReport(task.id, "info", {text: "rendering" + i, task});
-        // }
-        // await RabbitMQ.sendTaskReport(task.id, "info", {text: "finish", task});
-        eval(task["plugin"]);
+        vm.runInNewContext(task["plugin"], sandbox);
+
     }
 }
 

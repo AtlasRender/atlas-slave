@@ -6,12 +6,23 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b48198a4-4394-4b7c-a4d6-fd59a276435e" name="Default Changelist" comment="[global] Small changes.">
+    <list default="true" id="b48198a4-4394-4b7c-a4d6-fd59a276435e" name="Default Changelist" comment="[render_dispatcher] (wip #25) Executing plugin from string">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/plg.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/plg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/RenderDispatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/RenderDispatcher.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +60,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="copyright" />
     <property name="ts.external.directory.path" value="D:\GitHub\atlas-slave\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -58,10 +70,18 @@
       <recent name="D:\Projects\pathfinder-slave" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.plg.js">
     <configuration name="Run with WS tsc" type="NodeJSConfigurationType" application-parameters="--project tsconfig.json" node-parameters="--require ts-node/register" path-to-js-file="src/index.ts" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
+    <configuration name="plg.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/plugins/plg.js" working-dir="$PROJECT_DIR$/plugins">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.plg.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -83,6 +103,7 @@
       <workItem from="1603915963457" duration="4857000" />
       <workItem from="1604424555075" duration="1173000" />
       <workItem from="1604754586717" duration="1953000" />
+      <workItem from="1605110243341" duration="6402000" />
     </task>
     <task id="LOCAL-00001" summary="[Node] init.">
       <created>1602960877797</created>
@@ -147,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603916358722</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="[render_dispatcher] (wip #25) Executing plugin from string">
+      <created>1605025408852</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1605025408852</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +200,8 @@
     <MESSAGE value="[config] Added config." />
     <MESSAGE value="[git-crypt] Cleanup." />
     <MESSAGE value="[global] Small changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="[global] Small changes." />
+    <MESSAGE value="[render_dispatcher] (wip #25) Executing plugin from string" />
+    <option name="LAST_COMMIT_MESSAGE" value="[render_dispatcher] (wip #25) Executing plugin from string" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602968431259">
@@ -187,30 +216,30 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2610" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603367670318" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1604754607329">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1605110425830">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604754607329" />
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1604424792570">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605110425830" />
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1605116012732">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603928089105" />
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604424792570" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1604424792570">
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605116012732" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1605116012732">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603928089104" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604424792570" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1604424792570">
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605116012732" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1605116012732">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603928089104" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604424792570" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1604424792570">
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605116012732" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1605116012732">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603928089105" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604424792570" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605116012732" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1603928089107">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -267,14 +296,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602967582662" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603916361552">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1605025418910">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603916361552" />
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605025418910" />
     <state x="-1365" y="0" width="1381" height="717" maximized="true" key="dock-window-1" timestamp="1603038119031">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1365" y="0" width="1381" height="717" maximized="true" key="dock-window-1/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603038119031" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605111682205">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1605111682205" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -283,11 +317,6 @@
           <url>file://$PROJECT_DIR$/src/core/RabbitMQ.ts</url>
           <line>35</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/core/RenderDispatcher.ts</url>
-          <line>19</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/core/RabbitMQ.ts</url>
