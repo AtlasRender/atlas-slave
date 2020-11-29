@@ -9,25 +9,15 @@
 
 import RabbitMQ from "./RabbitMQ";
 import * as vm from "vm";
+import * as fs from "fs";
 
 let sandbox = {
     require,
     console
 };
 
-const plugin = "const { exec } = require(\"child_process\");\n" +
-    "\n" +
-    "exec(\"D: && cd \\\\Steam\\\\steamapps\\\\common\\\\Blender && blender Projects\\\\bugatti\\\\bugatti.blend --background --python Projects\\\\script1\\\\main.py\", (error, stdout, stderr) => {\n" +
-    "    if (error) {\n" +
-    "        console.log(`error: ${error.message}`);\n" +
-    "        return;\n" +
-    "    }\n" +
-    "    if (stderr) {\n" +
-    "        console.log(`stderr: ${stderr}`);\n" +
-    "        return;\n" +
-    "    }\n" +
-    "    console.log(`stdout: ${stdout}`);\n" +
-    "});";
+const plugin = fs.readFileSync('plugins/blenderPlugin.js', 'utf8');
+
 const settings = "";
 const task = {
     "plugin": plugin,
@@ -46,4 +36,4 @@ export default class RenderDispatcher {
     }
 }
 
-RenderDispatcher.doRenderTask(task).then(r => console.log("finish"));
+// RenderDispatcher.doRenderTask(task).then(r => console.log("finish"));
