@@ -11,10 +11,7 @@ import RabbitMQ from "./RabbitMQ";
 import * as vm from "vm";
 import * as fs from "fs";
 
-let sandbox = {
-    require,
-    console
-};
+
 
 let scriptSettings = fs.readFileSync('plugins/blenderScriptSettings.py', 'utf8');
 let scriptRender = fs.readFileSync('plugins/blenderScriptRender.py', 'utf8');
@@ -25,7 +22,14 @@ export default class RenderDispatcher {
     }
 
     public static async doRenderTask(task): Promise<void> {
-        const func = () => console.log("kuku");
+        let func = () => console.log("kuku");
+
+        let sandbox = {
+            func,
+            count: 2,
+            require,
+            console
+        };
 
         let frame = task.frame;
         // console.log(task);
