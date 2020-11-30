@@ -37,7 +37,7 @@ export default class RabbitMQ {
         await RabbitMQ.renderTasksChannel.assertQueue(AMQP_TASKS_QUEUE);
         await RabbitMQ.renderTasksChannel.prefetch(1);
         await RabbitMQ.renderTasksChannel.consume(AMQP_TASKS_QUEUE, async (message: Amqp.Message) => {
-            console.log("Got render task from queue.");
+            // console.log("Got render task from queue.");
             let renderTask: any = null;
             try {
                 RabbitMQ.renderTasksChannel.ack(message);
@@ -64,9 +64,9 @@ export default class RabbitMQ {
             task: taskId,
             data: message,
         }
-        console.log("REPORT PAYLOAD -----------------------------------------------------");
-        console.log(payload);
-        console.log("REPORT PAYLOAD END -------------------------------------------------");
+        // console.log("REPORT PAYLOAD -----------------------------------------------------");
+        // console.log(payload);
+        // console.log("REPORT PAYLOAD END -------------------------------------------------");
         const channel: Amqp.Channel = await RabbitMQ.connection.createChannel();
         await channel.assertQueue(AMQP_REPORTS_QUEUE);
         await channel.sendToQueue(AMQP_REPORTS_QUEUE, Buffer.from(JSON.stringify(payload)));

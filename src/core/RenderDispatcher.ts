@@ -16,13 +16,8 @@ let sandbox = {
     console
 };
 
-const plugin = fs.readFileSync('plugins/blenderPlugin.js', 'utf8');
-
-const settings = "";
-const task = {
-    "plugin": plugin,
-    "settings": ""
-}
+let scriptSettings = fs.readFileSync('plugins/blenderScriptSettings.py', 'utf8');
+let scriptRender = fs.readFileSync('plugins/blenderScriptRender.py', 'utf8');
 
 export default class RenderDispatcher {
     public static sendReport(message: any) {
@@ -30,10 +25,29 @@ export default class RenderDispatcher {
     }
 
     public static async doRenderTask(task): Promise<void> {
-        console.log(task["plugin"]);
-        vm.runInNewContext(task["plugin"], sandbox);
+        // let frame = task.frame;
+        console.log(task);
+        // console.log(task.job.plugin.script);
+        //
+        //
+        // let script = scriptSettings + '\nframe = ' + frame + '\n' + scriptRender;
+        // console.log(script);
+        // fs.writeFileSync('../../Steam/steamapps/common/Blender/Projects/script1/blender_script.py', script);
 
+        // await vm.runInNewContext(task.job.plugin.script, sandbox);
     }
 }
 
-// RenderDispatcher.doRenderTask(task).then(r => console.log("finish"));
+// export default class RenderDispatcher {
+//     public static sendReport(message: any) {
+//
+//     }
+//
+//     public static async doRenderTask(task): Promise<void> {
+//         console.log(task);
+//         for (let i = 0; i < 3; i++) {
+//             await RabbitMQ.sendTaskReport(task.id, "info", {text: "rendering" + i, task});
+//         }
+//         await RabbitMQ.sendTaskReport(task.id, "info", {text: "finish", task});
+//     }
+// }
