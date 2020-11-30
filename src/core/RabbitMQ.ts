@@ -40,15 +40,15 @@ export default class RabbitMQ {
             // console.log("Got render task from queue.");
             let renderTask: any = null;
             try {
-                RabbitMQ.renderTasksChannel.ack(message);
                 renderTask = JSON.parse(message.content.toString());
                 await this.sendTaskStartReport(renderTask.id);
                 await RenderDispatcher.doRenderTask(renderTask);
                 await this.sendTaskFinishReport(renderTask.id);
+                RabbitMQ.renderTasksChannel.ack(message);
                 // TODO: Add result to queue.
             } catch(error) {
-                RabbitMQ.renderTasksChannel.nack(message);
                 await this.sendTaskFinishReport(renderTask.id, "failed", {message: error.message});
+                RabbitMQ.renderTasksChannel.nack(message);
             }
         });
     }

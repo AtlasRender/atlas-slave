@@ -25,16 +25,19 @@ export default class RenderDispatcher {
     }
 
     public static async doRenderTask(task): Promise<void> {
-        // let frame = task.frame;
-        console.log(task);
-        // console.log(task.job.plugin.script);
-        //
-        //
-        // let script = scriptSettings + '\nframe = ' + frame + '\n' + scriptRender;
-        // console.log(script);
-        // fs.writeFileSync('../../Steam/steamapps/common/Blender/Projects/script1/blender_script.py', script);
+        const func = () => console.log("kuku");
 
-        // await vm.runInNewContext(task.job.plugin.script, sandbox);
+        let frame = task.frame;
+        // console.log(task);
+        console.log("rendering task frame", task.frame);
+
+
+        let script = scriptSettings + '\nframe = ' + frame + '\n' + scriptRender;
+        // console.log(script);
+        fs.writeFileSync('../../Steam/steamapps/common/Blender/Projects/script1/blender_script.py', script);
+
+        vm.runInNewContext(task.job.plugin.script, sandbox);
+        // await RabbitMQ.sendTaskReport(task.id, "info", {text: "finish", task});
     }
 }
 
