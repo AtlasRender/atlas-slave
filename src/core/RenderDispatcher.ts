@@ -21,38 +21,51 @@ export default class RenderDispatcher {
     }
 
     public static async doRenderTask(task): Promise<void> {
+        try {
+             const result = await new Promise((resolve, reject) => {
+                let sendReport = (type: ReportTypes, message: object, settings: SendTaskReportSettings = {}) =>
+                    RabbitMQ.sendTaskReport(task.id, type, message, settings);
 
-        let sendReport = (type: ReportTypes, message: object, settings: SendTaskReportSettings = {}) =>
-            RabbitMQ.sendTaskReport(task.id, type, message, settings);
+                function finishJob(status: "error" | "done", message: any){
+                    if(status !== "error" && status !== "done")
+                        throw new TypeError(`Invalid type of 'status', expected "'error' | 'done'", got "${status}".`);
+                    switch (status) {
+                        case "done":
+                            resolve(message);
+                            break;
+                        case "error":
+                            reject(message);
+                            break;
+                        default:
+                            throw new TypeError(`Invalid type of 'status', expected "'error' | 'done'", got "${status}".`);
+                    }
+                }
 
-        function finishJob(status: "error" | "done"){
-            if(status !== "error" && status !== "done")
-                throw new TypeError(`Invalid type of 'status', expected "'error' | 'done'", got "${status}".`);
+                let frame = task.frame;
+
+                let sandbox = {
+                    finishJob,
+                    sendReport,
+                    frame,
+                    require,
+                    console
+                };
 
 
+                console.log(task);
+                console.log("rendering task frame", task.frame);
+
+
+                // let script = scriptSettings + '\nframe = ' + frame + '\n' + scriptRender;
+                // console.log(script);
+                // fs.writeFileSync('../../Steam/steamapps/common/Blender/Projects/script1/blender_script.py', script);
+
+                vm.runInNewContext(task.job.plugin.script, sandbox);
+                // await RabbitMQ.sendTaskReport(task.id, "info", {text: "finish", task});
+            });
+        } catch (error) {
+            //TODO: handler error
         }
-
-        let frame = task.frame;
-
-        let sandbox = {
-            finishJob,
-            sendReport,
-            frame,
-            require,
-            console
-        };
-
-
-        console.log(task);
-        console.log("rendering task frame", task.frame);
-
-
-        // let script = scriptSettings + '\nframe = ' + frame + '\n' + scriptRender;
-        // console.log(script);
-        // fs.writeFileSync('../../Steam/steamapps/common/Blender/Projects/script1/blender_script.py', script);
-
-        vm.runInNewContext(task.job.plugin.script, sandbox);
-        // await RabbitMQ.sendTaskReport(task.id, "info", {text: "finish", task});
     }
 }
 

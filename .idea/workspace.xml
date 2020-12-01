@@ -6,29 +6,12 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:creating-plugin-system" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b48198a4-4394-4b7c-a4d6-fd59a276435e" name="Default Changelist" comment="[render_dispatcher] Debug version.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/blenderPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/blenderPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/RabbitMQ.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/RabbitMQ.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/RenderDispatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/RenderDispatcher.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -453,7 +436,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/core/RenderDispatcher.ts</url>
-          <line>52</line>
+          <line>68</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
