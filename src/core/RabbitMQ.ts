@@ -53,7 +53,7 @@ export default class RabbitMQ {
         });
     }
 
-    public static async sendTaskReport(taskId: number, type: ReportTypes, message: object, settings: SendTaskReportSettings =  {}): Promise<void> {
+    public static async sendTaskReport(taskId: number, type: ReportTypes, message: object, settings: SendTaskReportSettings = {}): Promise<void> {
         const {
             action = "report"
         } = settings;
