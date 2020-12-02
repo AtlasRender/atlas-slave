@@ -1,15 +1,8 @@
-/*
- * Copyright (c) 2020. This code created and belongs to Pathfinder render manager project.
- * Owner and project architect: Danil Andreev | danssg08@gmail.com |  https://github.com/DanilAndreev
- * File creator: Allison
- * Project: atlas-slave
- * File last modified: 29.11.2020, 23:54
- * All rights reserved.
- */
-
 const { exec } = require("child_process");
 
-const cp = exec("D: && cd \\Autodesk Maya 2020.3\\Maya2020\\bin && render \\Maya\\Earth\\scenes\\Earth.ma --background --python \\Maya\\maya_script\\main.py", (error, stdout, stderr) => {
+let frame = 0;
+
+const cp = exec(`"D:\\Autodesk Maya 2020.3\\Maya2020\\bin\\Render.exe" -s ${frame} -e ${frame} D:\\Maya\\Earth\\scenes\\Earth.ma`, (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;

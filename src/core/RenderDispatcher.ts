@@ -14,7 +14,7 @@ import * as vm from "vm";
 /**
  * RenderDispatcher - class, designed to handle render plugin executing.
  * @class
- * @author Danil Andreev, Liskovich Anton
+ * @author Danil Andreev, Liskovych Anton
  */
 export default class RenderDispatcher {
     public static doRenderTask(task): Promise<void> {
@@ -36,7 +36,14 @@ export default class RenderDispatcher {
                 }
             }
 
-            const sandbox = {
+            const sandboxBlender = {
+                finishJob,
+                sendReport,
+                frame: task.frame,
+                require,
+                console
+            };
+            const sandboxMaya = {
                 finishJob,
                 sendReport,
                 frame: task.frame,
@@ -47,7 +54,7 @@ export default class RenderDispatcher {
             console.log(task);
             console.log("rendering task frame", task.frame);
 
-            vm.runInNewContext(task.job.plugin.script, sandbox);
+            vm.runInNewContext(task.job.plugin.script, sandboxBlender);
         });
     }
 }
