@@ -1,11 +1,16 @@
 const {exec} = require("child_process");
 
+
+let pathToBlender = `\\Steam\\steamapps\\common\\Blender`;
+console.log(pathToBlender);
+let pathToBlenderScene = `Projects\\bugatti\\bugatti.blend`;
 let frame = 0
 let timeAll = 0;
 console.log("plugin begin render task");
 console.log(frame);
-
-const cp = exec(`D: && cd \\Steam\\steamapps\\common\\Blender && blender --verbose 4 Projects\\bugatti\\bugatti.blend --background --python Projects\\script1\\blender_script.py -- ${frame}`, (error, stdout, stderr) => {
+// D: && cd Steam\steamapps\common\Blender && blender --verbose 4 Projects\bugatti\bugatti.blend --background --python Projects\script1\blender_script.py -- 0
+// `D: && cd \\Steam\\steamapps\\common\\Blender && blender --verbose 4 Projects\\bugatti\\bugatti.blend --background --python Projects\\script1\\blender_script.py -- ${frame}`
+const cp = exec(`D: && cd ${pathToBlender} && blender --verbose 4 ${pathToBlenderScene} --background --python Projects\\script1\\blender_script.py -- ${frame}`, (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -46,4 +51,3 @@ cp.stdout.on("data", async (data) => {
         }
     }
 });
-

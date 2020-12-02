@@ -22,8 +22,8 @@ export default class RenderDispatcher {
             async function sendReport(type: ReportTypes, message: object, settings: SendTaskReportSettings = {}): Promise<void> {
                 await RabbitMQ.sendTaskReport(task.id, type, message, settings);
             }
-
             function finishJob(status: "error" | "done", message?: any): void {
+                console.log(message);
                 switch (status) {
                     case "done":
                         resolve(message);
@@ -36,14 +36,9 @@ export default class RenderDispatcher {
                 }
             }
 
-            const sandboxBlender = {
-                finishJob,
-                sendReport,
-                frame: task.frame,
-                require,
-                console
-            };
-            const sandboxMaya = {
+            const sandbox = {
+                pathToBlender: task.job.pluginSettings.pathToBlender,
+                pathToBlenderScene: task.job.pluginSettings.pathToBlenderScene,
                 finishJob,
                 sendReport,
                 frame: task.frame,
@@ -54,7 +49,7 @@ export default class RenderDispatcher {
             console.log(task);
             console.log("rendering task frame", task.frame);
 
-            vm.runInNewContext(task.job.plugin.script, sandboxBlender);
+            vm.runInNewContext(task.job.plugin.script, sandbox);
         });
     }
 }
