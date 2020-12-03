@@ -1,16 +1,20 @@
 const {exec} = require("child_process");
-
-
-let pathToBlender = `\\Steam\\steamapps\\common\\Blender`;
-console.log(pathToBlender);
-let pathToBlenderScene = `Projects\\bugatti\\bugatti.blend`;
-let frame = 0
+let pathToBlender = `D:\\Steam\\steamapps\\common\\Blender`;
+let pathToBlenderScene = `D:\\Steam\\steamapps\\common\\Blender\\Projects\\bugatti\\bugatti.blend`;
+let samples = 50;
+let resolutionX = 1920;
+let resolutionY = 200;
 let timeAll = 0;
+let frame = 0;
 console.log("plugin begin render task");
 console.log(frame);
-// D: && cd Steam\steamapps\common\Blender && blender --verbose 4 Projects\bugatti\bugatti.blend --background --python Projects\script1\blender_script.py -- 0
-// `D: && cd \\Steam\\steamapps\\common\\Blender && blender --verbose 4 Projects\\bugatti\\bugatti.blend --background --python Projects\\script1\\blender_script.py -- ${frame}`
-const cp = exec(`D: && cd ${pathToBlender} && blender --verbose 4 ${pathToBlenderScene} --background --python Projects\\script1\\blender_script.py -- ${frame}`, (error, stdout, stderr) => {
+const command = [
+    `${pathToBlender.substr(0, 2)} && cd ${pathToBlender.substr(2)} && blender --verbose 4 ${pathToBlenderScene}`,
+    ` --background --python Projects\\script1\\blender_script.py `,
+    `-- ${+frame} ${+samples} ${+resolutionX} ${+resolutionY} `
+].join("");
+const cp = exec(command,
+    (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -20,16 +24,16 @@ const cp = exec(`D: && cd ${pathToBlender} && blender --verbose 4 ${pathToBlende
         return;
     }
     console.log("100%\nfinish render");
-    finishJob("done", "render finished!");
+    // finishJob("done", "render finished!");
     // console.log(`stdout: ${stdout}`);
 });
 console.log("Prepare for rendering!");
 cp.stdout.on("data", async (data) => {
     // console.log(data);
     const cols = data.split("|");
-    // console.log(cols);
+    console.log(cols);
     for (let i = 0; i < cols.length; i++) {
-        if (cols[i].includes(" Path Tracing Sample 2/100\n")) {
+        if (cols[i].includes(" Path Tracing Sample 2/")) {
             for (let j = 0; j < cols.length; j++) {
                 if (cols[j].includes("Remaining")) {
                     let min1 = +cols[j].substr(11, 2);
@@ -46,8 +50,11 @@ cp.stdout.on("data", async (data) => {
             let sec2 = +cols[i].substr(14, 2);
             let ms2 = +cols[i].substr(17, 2);
             let timeNow = (min2 * 60000) + (sec2 * 1000) + ms2;
-            // console.log(`${(100 - (timeNow / timeAll) * 100).toFixed(2)}%`);
-            await sendReport("info", {Processing: `${(100 - (timeNow / timeAll) * 100).toFixed(2)}%`});
+            // console.log(timeAll)
+            // console.log(timeNow)
+            console.log(`${(100 - (timeNow / timeAll) * 100).toFixed(2)}%`);
+            await sendReport("info", {progress: (100 - (timeNow / timeAll) * 100).toFixed(2)});
         }
     }
+    // sendReport("info", {message: data});
 });

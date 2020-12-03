@@ -39,14 +39,19 @@ export default class RenderDispatcher {
             const sandbox = {
                 pathToBlender: task.job.pluginSettings.pathToBlender,
                 pathToBlenderScene: task.job.pluginSettings.pathToBlenderScene,
+                samples: task.job.pluginSettings.samples,
+                resolutionX: task.job.pluginSettings.resolutionX,
+                resolutionY: task.job.pluginSettings.resolutionY,
                 finishJob,
                 sendReport,
                 frame: task.frame,
+                renumbered: task.renumbered,
                 require,
                 console
             };
 
             console.log(task);
+            console.log(task.renumbered);
             console.log("rendering task frame", task.frame);
 
             vm.runInNewContext(task.job.plugin.script, sandbox);
