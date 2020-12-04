@@ -9,6 +9,8 @@
 
 import RabbitMQ, {ReportTypes, SendTaskReportSettings} from "./RabbitMQ";
 import * as vm from "vm";
+import * as fs from "fs";
+import * as os  from "os";
 
 
 /**
@@ -16,6 +18,7 @@ import * as vm from "vm";
  * @class
  * @author Danil Andreev, Liskovych Anton
  */
+
 export default class RenderDispatcher {
     public static doRenderTask(task): Promise<void> {
         return new Promise<void>((resolve, reject) => {
