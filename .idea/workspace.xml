@@ -6,12 +6,29 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b48198a4-4394-4b7c-a4d6-fd59a276435e" name="Default Changelist" comment="[RabbitMQ] Added debug logs.">
-      <change beforePath="$PROJECT_DIR$/src/globals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/globals.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/slave_env.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/RenderDispatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/RenderDispatcher.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +60,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="12.18.2" />
-    <property name="javascript.nodejs.core.library.typings.version" value="12.12.68" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.19.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.19.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -55,7 +72,7 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="copyright" />
-    <property name="ts.external.directory.path" value="D:\Projects\pathfinder-slave\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\GitHub\atlas-slave\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -88,6 +105,9 @@
       <workItem from="1603907202136" duration="184000" />
       <workItem from="1603915963457" duration="4931000" />
       <workItem from="1603998681152" duration="7553000" />
+      <workItem from="1607202199711" duration="1392000" />
+      <workItem from="1607438981947" duration="105000" />
+      <workItem from="1607439103522" duration="1863000" />
     </task>
     <task id="LOCAL-00001" summary="[Node] init.">
       <created>1602960877797</created>
@@ -198,7 +218,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -232,25 +264,33 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2610" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603367670318" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1604604051239">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1607202388065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1920.-119.1920.1040@0.0.1920.1040" timestamp="1607202388065" />
+    <state width="1899" height="385" key="GridCell.Tab.0.bottom" timestamp="1607441322723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604015064134" />
+    <state width="1899" height="385" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.-119.1920.1040@0.0.1920.1040" timestamp="1607441322723" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-3840.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604604051239" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1604604051239">
+    <state width="1899" height="385" key="GridCell.Tab.0.center" timestamp="1607441322723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604015064133" />
+    <state width="1899" height="385" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.-119.1920.1040@0.0.1920.1040" timestamp="1607441322723" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-3840.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604604051239" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1604604051238">
+    <state width="1899" height="385" key="GridCell.Tab.0.left" timestamp="1607441322723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604015064133" />
+    <state width="1899" height="385" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.-119.1920.1040@0.0.1920.1040" timestamp="1607441322723" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-3840.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604604051238" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1604604051239">
+    <state width="1899" height="385" key="GridCell.Tab.0.right" timestamp="1607441322723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604015064133" />
+    <state width="1899" height="385" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.-119.1920.1040@0.0.1920.1040" timestamp="1607441322723" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-3840.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604604051239" />
     <state width="1877" height="244" key="GridCell.Tab.1.bottom" timestamp="1604574028045">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -312,6 +352,10 @@
     </state>
     <state width="1877" height="348" key="GridCell.Tab.3.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604015063724" />
     <state width="1877" height="244" key="GridCell.Tab.3.right/0.0.1920.1040/-3840.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604574028050" />
+    <state x="184" y="85" key="MergeDialog" timestamp="1607178016424">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="85" key="MergeDialog/0.0.1920.1040/-1920.-119.1920.1040@0.0.1920.1040" timestamp="1607178016424" />
     <state x="598" y="281" key="MultipleFileMergeDialog" timestamp="1604000152788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -324,14 +368,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602967582662" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604615247381">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607178025227">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604000161228" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.-119.1920.1040@0.0.1920.1040" timestamp="1607178025227" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-3840.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604615247381" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604596199073">
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607440323488">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.-119.1920.1040@0.0.1920.1040" timestamp="1607440323488" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-3840.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604596199073" />
     <state x="-1365" y="0" width="1381" height="717" maximized="true" key="dock-window-1" timestamp="1603038119031">
       <screen x="-1920" y="0" width="1920" height="1040" />

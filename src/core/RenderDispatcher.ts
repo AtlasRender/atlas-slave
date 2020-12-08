@@ -39,8 +39,11 @@ export default class RenderDispatcher {
                 }
             }
 
+            // let data = require("plugins/slave_env.json");
+            // console.log(data);
+
+
             const sandbox = {
-                pathToBlender: task.job.pluginSettings.pathToBlender,
                 pathToBlenderScene: task.job.pluginSettings.pathToBlenderScene,
                 samples: task.job.pluginSettings.samples,
                 resolutionX: task.job.pluginSettings.resolutionX,
