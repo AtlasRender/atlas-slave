@@ -36,18 +36,20 @@ const command = [
 ].join("");
 const cp = exec(command,
     (error, stdout, stderr) => {
-    if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-    }
-    console.log("100%\nfinish render");
-    // finishJob("done", "render finished!");
-    fs.unlink(os.tmpdir() + `\\` + scriptName, () => {console.log("Script was deleted")});
-});
+        if (error) {
+            console.log(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log("100%\nfinish render");
+        // finishJob("done", "render finished!");
+        fs.unlink(os.tmpdir() + `\\` + scriptName, () => {
+            console.log("Script was deleted")
+        });
+    });
 console.log("Prepare for rendering!");
 cp.stdout.on("data", async (data) => {
     // console.log(data);
@@ -71,7 +73,7 @@ cp.stdout.on("data", async (data) => {
             let sec2 = +cols[i].substr(14, 2);
             let ms2 = +cols[i].substr(17, 2);
             let timeNow = (min2 * 60000) + (sec2 * 1000) + ms2;
-            if(timeAll < timeNow){
+            if (timeAll < timeNow) {
                 timeAll = timeNow;
             }
             // console.log(timeAll)
