@@ -2,54 +2,73 @@ const fs = require("fs");
 const os = require("os");
 
 const {exec} = require("child_process");
-let pathToBlender = `D:\\Steam\\steamapps\\common\\Blender`;
-let pathToBlenderScene = `D:\\Steam\\steamapps\\common\\Blender\\Projects\\bugatti\\bugatti.blend`;
-let samples = 50;
-let resolutionX = 865;
-let resolutionY = 9;
+let env = {
+    pathToBlender: "D:\\Steam\\steamapps\\common\\Blender",
+    pathToMaya: "D:\\Autodesk Maya 2020.3\\Maya2020\\bin"
+};
+let pluginSettings = {
+    pathToBlenderScene: "D:\\Steam\\steamapps\\common\\Blender\\Projects\\bugatti\\bugatti.blend",
+    outputFolder: "C:\\BlenderProjects\\",
+    threads: 0,
+    resolutionX: 1920,
+    resolutionY: 1080
+};
 let timeAll = 0;
 let frame = 0;
 let renumbered = 5;
 
-const script = "from datetime import datetime\nfrom bpy.app import handlers\nimport bpy.types\n" +
-    "import bpy\nimport os\nimport json\nimport sys\nimport time\n\n\nprint(bpy.context.scene.cycles.samples)\n" +
-    "\nFRAME_START_TIME = None\nRENDER_START_TIME = None\noutputDir = bpy.context.scene.render.filepath\n" +
-    "\nargv = sys.argv\nargv = argv[argv.index(\"--\") + 1:]\nframe = int(argv[0])\nbpy.context.scene.cycles.samples = int(argv[1])\n" +
-    "bpy.context.scene.render.resolution_x = int(argv[2])\nbpy.context.scene.render.resolution_y = int(argv[3])\nprint(argv[1])\n" +
-    "print(\"asd\")\nbpy.context.scene.render.filepath = \"/Projects/\" + str(argv[4]).zfill(4)\nbpy.context.scene.frame_set(int(frame))\n" +
-    "bpy.ops.render.render(write_still=True, use_viewport=True)"
+console.log(`plugin begin render task for frame ${frame}`);
+
+const script = "import bpy\n" +
+    "import sys\n" +
+    "\n" +
+    "FRAME_START_TIME = None\n" +
+    "RENDER_START_TIME = None\n" +
+    "outputDir = bpy.context.scene.render.filepath\n" +
+    "\n" +
+    "argv = sys.argv\n" +
+    "argv = argv[argv.index(\"--\") + 1:]\n" +
+    "frame = int(argv[0])\n" +
+    "bpy.context.scene.render.threads = int(argv[1])\n" +
+    "bpy.context.scene.render.resolution_x = int(argv[2])\n" +
+    "bpy.context.scene.render.resolution_y = int(argv[3])\n" +
+    "bpy.context.scene.render.filepath = argv[5] + str(argv[4]).zfill(5)\n" +
+    "bpy.context.scene.frame_set(int(frame))\n" +
+    "bpy.ops.render.render(write_still=True, use_viewport=True)\n"
 
 const scriptName = "Atlas-slave-temp" + Math.floor(Math.random() * (110000 - 100000) + 100000) + `.py`;
+const scriptFilename = os.tmpdir() + `\\` + scriptName;
 
 console.log(scriptName);
 
 fs.writeFileSync(os.tmpdir() + `\\` + scriptName, script);
 
-console.log(os.tmpdir() + `\\` + scriptName);
+const pathToBlender = env.pathToBlender.replace(/"/g, "\\\"");
+const pathToBlenderScene = pluginSettings.pathToBlenderScene.replace(/"/g, "\\\"");
+const threads = pluginSettings.threads;
+const resolutionX =  pluginSettings.resolutionX;
+const resolutionY = pluginSettings.resolutionY;
+const outputFolder = pluginSettings.outputFolder;
 
-console.log("plugin begin render task");
-console.log(frame);
 const command = [
-    ` ${pathToBlender.substr(0, 2)} && cd ${pathToBlender.substr(2)} && blender --verbose 4 ${pathToBlenderScene}`,
-    ` --background --python ${os.tmpdir() + `\\` + scriptName} `,
-    `-- ${+frame} ${+samples} ${+resolutionX} ${+resolutionY} ${+renumbered}`
+    `${pathToBlender.substr(0, 2)} && cd "${pathToBlender.substr(2)}" && blender --verbose 4 "${pathToBlenderScene}"`,
+    ` --background --python "${scriptFilename}" `,
+    `-- ${+frame} ${+threads} ${+resolutionX} ${+resolutionY} ${+renumbered} ${outputFolder}`
 ].join("");
-const cp = exec(command,
-    (error, stdout, stderr) => {
-        if (error) {
-            console.log(`error: ${error.message}`);
-            return;
-        }
-        if (stderr) {
-            console.log(`stderr: ${stderr}`);
-            return;
-        }
-        console.log("100%\nfinish render");
-        // finishJob("done", "render finished!");
-        fs.unlink(os.tmpdir() + `\\` + scriptName, () => {
-            console.log("Script was deleted")
-        });
-    });
+const cp = exec(command,(error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log("100%\nfinish render");
+    // finishJob("done", "render finished!");
+    fs.unlink(os.tmpdir() + `\\` + scriptName, () => {console.log("Script was deleted")});
+    // console.log(`stdout: ${stdout}`);
+});
 console.log("Prepare for rendering!");
 cp.stdout.on("data", async (data) => {
     // console.log(data);
@@ -73,14 +92,12 @@ cp.stdout.on("data", async (data) => {
             let sec2 = +cols[i].substr(14, 2);
             let ms2 = +cols[i].substr(17, 2);
             let timeNow = (min2 * 60000) + (sec2 * 1000) + ms2;
-            if (timeAll < timeNow) {
+            if(timeAll < timeNow){
                 timeAll = timeNow;
             }
-            // console.log(timeAll)
-            // console.log(timeNow)
             console.log(`${(100 - (timeNow / timeAll) * 100).toFixed(2)}%`);
             // await sendReport("info", {progress: (100 - (timeNow / timeAll) * 100).toFixed(2)});
         }
     }
-    // sendReport("info", {message: data});
+    // await sendReport("info", {message: data});
 });
