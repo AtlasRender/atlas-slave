@@ -11,6 +11,13 @@
         <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/AtlasRender/atlas-slave">
         <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/AtlasRender/atlas-slave">
     </div>
+    <div align="center">
+        <img alt="Sonar bugs" src="https://sonarcloud.io/api/project_badges/measure?project=AtlasRender_atlas-slave&metric=bugs"/>
+        <img alt="Sonar lines of code" src="https://sonarcloud.io/api/project_badges/measure?project=AtlasRender_atlas-slave&metric=ncloc"/>
+        <img alt="Sonar maintainability raiting" src="https://sonarcloud.io/api/project_badges/measure?project=AtlasRender_atlas-slave&metric=sqale_rating"/>
+        <img alt="Sonar security" src="https://sonarcloud.io/api/project_badges/measure?project=AtlasRender_atlas-slave&metric=security_rating"/>
+        <img alt="Sonar reliability" src="https://sonarcloud.io/api/project_badges/measure?project=AtlasRender_atlas-slave&metric=reliability_rating"/>
+    </div>   
 </a>
 
 ### Render node manager
