@@ -1,4 +1,4 @@
-# Atlas Core
+# Atlas Slave
 ### Contributing guideline
 ## Overview
 Hello contibutor! Thank you for your interest in our system :)
