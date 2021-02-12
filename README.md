@@ -20,6 +20,10 @@
     </div>   
 </a>
 
+<div align="center">
+    <img src="https://lh3.googleusercontent.com/proxy/5kBIJT8_v78dKJN4JpP_ChoC__KfFLGDOFJpAwoRH7Fth0UCrYAoC4GUfoVsKMixSmgYBBhn4fVcjkQBxtguiSg-ez-nkce9gHpLRYdRgMTDVKMXpiKX3S0-cLV8JH8KiL3u_jza" height="100px"/>
+</div>
+
 ### Render node manager
 Atlas Slave system designed to manipulate with __3D Software__ and __Redner Engines__ on render nodes.
 
